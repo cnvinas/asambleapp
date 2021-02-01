@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs-page';
-import { SchedulePage } from '../schedule/schedule';
+import { SchedulePage } from '../redes/schedule';
 
 
 const routes: Routes = [
@@ -10,32 +10,11 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'schedule',
+        path: 'redes',
         children: [
           {
             path: '',
             component: SchedulePage,
-          },
-          {
-            path: 'session/:sessionId',
-            loadChildren: () => import('../session-detail/session-detail.module').then(m => m.SessionDetailModule)
-          }
-        ]
-      },
-      {
-        path: 'speakers',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('../speaker-list/speaker-list.module').then(m => m.SpeakerListModule)
-          },
-          {
-            path: 'session/:sessionId',
-            loadChildren: () => import('../session-detail/session-detail.module').then(m => m.SessionDetailModule)
-          },
-          {
-            path: 'speaker-details/:speakerId',
-            loadChildren: () => import('../speaker-detail/speaker-detail.module').then(m => m.SpeakerDetailModule)
           }
         ]
       },
@@ -49,17 +28,35 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'about',
+        path: 'asamblea',
         children: [
           {
             path: '',
-            loadChildren: () => import('../about/about.module').then(m => m.AboutModule)
+            loadChildren: () => import('../asamblea/about.module').then(m => m.AboutModule)
+          }
+        ]
+      },
+      {
+        path: 'info',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../info/info.module').then(m => m.InfoModule)
+          }
+        ]
+      },
+      {
+        path: 'camara',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../camara/camara.module').then(m => m.CamaraModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/app/tabs/schedule',
+        redirectTo: '/app/tabs/redes',
         pathMatch: 'full'
       }
     ]

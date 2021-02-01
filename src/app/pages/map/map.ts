@@ -1,24 +1,31 @@
-import { Component, ElementRef, Inject, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { ConferenceData } from '../../providers/conference-data';
 import { Platform } from '@ionic/angular';
 import { DOCUMENT} from '@angular/common';
 
 import { darkStyle } from './map-dark-style';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html',
   styleUrls: ['./map.scss']
 })
-export class MapPage implements AfterViewInit {
+export class MapPage implements OnInit {
   @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
     public confData: ConferenceData,
-    public platform: Platform) {}
+    public platform: Platform,
+    private browser: InAppBrowser) {}
 
-  async ngAfterViewInit() {
+    ngOnInit(){
+      this.browser.create("https://www.google.com/maps/d/viewer?mid=1S7F6mZ6byNdSDnx4NYuhk3MdvoEibP1Z&hl=es&ll=-37.95035205048554%2C-57.54862841207529&z=10", "_self");
+
+    }
+
+  /*async ngAfterViewInit() {
     const appEl = this.doc.querySelector('ion-app');
     let isDark = false;
     let style = [];
@@ -27,7 +34,7 @@ export class MapPage implements AfterViewInit {
     }
 
     const googleMaps = await getGoogleMaps(
-      'YOUR_API_KEY_HERE'
+      'AIzaSyCt_1yQgrXUxMVpMYa_xfcLY3xUtxo-K0I'
     );
 
     let map;
@@ -78,10 +85,10 @@ export class MapPage implements AfterViewInit {
     observer.observe(appEl, {
       attributes: true
     });
-  }
+  }*/
 }
 
-function getGoogleMaps(apiKey: string): Promise<any> {
+/*function getGoogleMaps(apiKey: string): Promise<any> {
   const win = window as any;
   const googleModule = win.google;
   if (googleModule && googleModule.maps) {
@@ -103,5 +110,5 @@ function getGoogleMaps(apiKey: string): Promise<any> {
       }
     };
   });
-}
+}*/
 
