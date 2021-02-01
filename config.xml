@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.conferenceapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Ionic Conference App</name>
-    <description>Schedule, speakers, venue.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="com.paremoseldesiertoverde.asambleapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>AsambleApp</name>
+    <description>Asamblea vecinal Paremos el Desierto Verde - Mar Chiquita por el Buen Vivir</description>
+    <author email="cnvinas@gmail.com" href="http://github.com/cnvinas">Cnvinas</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
