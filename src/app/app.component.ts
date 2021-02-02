@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
-import { MenuController, Platform, ToastController } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -13,36 +13,48 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  appPages = [    
-    
+  appPages = [        
     {
-      title: 'Nuestras Redes',
-      url: '/app/tabs/redes',
-      icon: 'at'
+      title: 'La Asamblea',
+      url: '/app/asamblea',
+      icon: 'heart-outline'
+    },
+    {
+      title: 'Facebook',
+      url: 'facebook',
+      icon: 'logo-facebook'
+    },
+    {
+      title: 'Instagram',
+      url: 'instagram',
+      icon: 'logo-instagram'
+    },
+    {
+      title: 'Youtube',
+      url: 'youtube',
+      icon: 'logo-youtube'
+    },
+    {
+      title: 'Agroecología Ya',
+      url: 'agroecologiaya',
+      icon: 'leaf-outline'
     },
     {
       title: 'Mapa Agroecológico',
-      url: '/app/tabs/map',
-      icon: 'map'
+      url: 'map',
+      icon: 'map-outline'
+    },
+    {
+      title: 'Cámara',
+      url: 'camara',
+      icon: 'camera-outline'
     },
     {
       title: 'Info útil',
-      url: '/app/tabs/info',
-      icon: 'information-circle'
-    },
-    /*{
-      title: 'Cámara',
-      url: '/app/tabs/camara',
-      icon: 'camera'
-    },*/
-    {
-      title: 'La Asamblea',
-      url: '/app/tabs/asamblea',
-      icon: 'heart'
+      url: 'info',
+      icon: 'information-circle-outline'
     }
   ];
-  loggedIn = false;
-  dark = false;
 
   constructor(
     private platform: Platform,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Config } from '@ionic/angular';
 
 @Component({
@@ -64,7 +65,20 @@ export class AboutPage implements OnInit {
     }
   ]
 
-  constructor(public config: Config) { }
+  constructor( private browser: InAppBrowser, public config: Config){}
+
+  async openSocial(network: string, target: string) {
+    let link;
+    if(network === "Youtube"){
+      link = "https://m.youtube.com/marchiquitaporelbuenvivir";
+    } else if(network === "Facebook"){
+      link = "http://m.facebook.com/marchiquitaporelbuenvivir";
+    } else if(network === "Instagram"){
+      link = "http://m.instagram.com/desierto_verde";
+    }
+    this.browser.create(link, target);
+  }
+
   ngOnInit() {
     this.ios = this.config.get('mode') === 'ios';
   }

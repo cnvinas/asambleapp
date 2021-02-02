@@ -30,4 +30,20 @@
             <img [src]="img.src">
         </div>
     </div>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
+        <ion-fab-button>
+            <ion-icon name="share-social"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+            <ion-fab-button color="youtube" (click)="openSocial('Youtube', '_self' )">
+                <ion-icon name="logo-youtube"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="instagram" (click)="openSocial('Instagram', '_self')">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="facebook" (click)="openSocial('Facebook', '_self')">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+    </ion-fab>
 </ion-content>

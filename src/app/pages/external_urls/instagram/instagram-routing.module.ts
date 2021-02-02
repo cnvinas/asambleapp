@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AboutPage } from './about';
+import { InstagramPage } from './instagram';
 
 const routes: Routes = [
   {
-    path: 'asamblea',
-    component: AboutPage    
+    path: '',
+    component: InstagramPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AboutPageRoutingModule { }
+export class InstagramPageRoutingModule { }
