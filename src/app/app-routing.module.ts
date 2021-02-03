@@ -24,17 +24,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/external_urls/map/map.module').then(m => m.MapModule)
   },
   {
-    path: 'facebook',
-    loadChildren: () => import('./pages/external_urls/facebook/facebook.module').then(m => m.FacebookModule)
+    path: 'browse',
+    loadChildren: () => import('./pages/external_urls/browse/browse.module').then(m => m.BrowseModule)
   },
-  {
+  /*{
     path: 'instagram',
     loadChildren: () => import('./pages/external_urls/instagram/instagram.module').then(m => m.InstagramModule)
   },
   {
     path: 'youtube',
     loadChildren: () => import('./pages/external_urls/youtube/youtube.module').then(m => m.YoutubeModule)
-  },
+  },*/
   {
     path: 'agroecologiaya',
     loadChildren: () => import('./pages/external_urls/agroecologiaya/agroecologiaya.module').then(m => m.AgroecologiaYaModule)

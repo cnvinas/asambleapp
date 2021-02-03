@@ -7,12 +7,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicModule } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera/ngx';
-
+import { AppAvailability } from '@ionic-native/app-availability/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
+import { OpenNativeApps } from './services/open_native_apps.service';
 
 @NgModule({
   imports: [
@@ -27,7 +28,7 @@ import { FormsModule } from '@angular/forms';
     })
   ],
   declarations: [AppComponent],
-  providers: [InAppBrowser, SplashScreen, StatusBar, Camera],
+  providers: [InAppBrowser, SplashScreen, StatusBar, Camera, AppAvailability, OpenNativeApps],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

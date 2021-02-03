@@ -8,7 +8,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 export class MapPage implements OnInit {
   url = "https://www.google.com/maps/d/viewer?mid=1S7F6mZ6byNdSDnx4NYuhk3MdvoEibP1Z&hl=es&ll=-37.95035205048554%2C-57.54862841207529&z=10";
   target = "_self";
-  options = 'toolbar=no';
+  options = 'location=no,toolbar=no';
 
   constructor(private browser: InAppBrowser) { }
 

@@ -1,32 +1,49 @@
 import { Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 @Component({
-    selector: 'page-camara',
-    templateUrl: 'camara.html',
-    styleUrls: ['camara.scss']
+  selector: 'page-camara',
+  templateUrl: 'camara.html',
+  styleUrls: ['camara.scss']
 })
 
-export class CamaraPage { 
-    clickedImage: string;
+export class CamaraPage {
+  currentImage: any;
 
-    options: CameraOptions = {
+  options: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.FILE_URI,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    saveToPhotoAlbum: true
+  }
+
+  constructor(public DomSanitizer: DomSanitizer, private camera: Camera) { }
+
+  ngOnInit(){
+    console.log(this.currentImage);
+  }
+
+  takePicture() {
+    const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
-    }
-  
-    constructor(private camera: Camera) { }
-  
-    captureImage() {
-      this.camera.getPicture(this.options).then((imageData) => {
-        // imageData is either a base64 encoded string or a file URI
-        // If it's base64 (DATA_URL):
-        let base64Image = 'data:image/jpeg;base64,' + imageData;
-        this.clickedImage = base64Image;
-      }, (err) => {
-        console.log(err);
-        // Handle error
-      });
-    }
+    };
+
+    this.camera.getPicture(options).then((imageData) => {
+      this.currentImage = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+      // Handle error
+      console.log("Camera issue:" + err);
+    });
+  }
+
+  createFilename() {
+    var d = new Date(),
+      n = d.getTime(),
+      newFilename = n + ".jpg";
+    return newFilename;
+  }
 }

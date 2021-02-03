@@ -21,17 +21,17 @@ export class AppComponent {
     },
     {
       title: 'Facebook',
-      url: 'facebook',
+      url: 'browse/facebook',
       icon: 'logo-facebook'
     },
     {
       title: 'Instagram',
-      url: 'instagram',
+      url: 'browse/instagram',
       icon: 'logo-instagram'
     },
     {
       title: 'Youtube',
-      url: 'youtube',
+      url: 'browse/youtube',
       icon: 'logo-youtube'
     },
     {

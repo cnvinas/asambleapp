@@ -6,11 +6,13 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
   styleUrls: ['./agroecologiaya.scss']
 })
 export class AgroecologiaYaPage implements OnInit {
+  url = "https://www.agroecologiaya.org/";
+  target = "_self";
+  options = 'location=no,toolbar=no';
 
-  constructor(private browser: InAppBrowser) {}
+  constructor(private browser: InAppBrowser) { }
 
-    ngOnInit(){
-      this.browser.create("https://www.agroecologiaya.org/", "_self", 'toolbar=no');
-    }
-
+  ngOnInit() {
+    this.browser.create(this.url, this.target, this.options);
   }
+}

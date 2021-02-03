@@ -6,21 +6,11 @@
         <ion-title>Cámara</ion-title>
     </ion-toolbar>
 </ion-header>
-<ion-content fullscreen="true">
-    <ion-grid>
-        <ion-row class="ion-justify-content-center ion-padding top-row">
-            <ion-col>
-                <div>
-                    <img [src]="clickedImage" *ngIf="clickedImage !== undefined" />
-                </div>
-            </ion-col>
-        </ion-row>
-        <ion-row ion-padding class=" bottom-row ">
-            <ion-col class="ion-justify-content-center ">
-                <ion-button expand="block " (click)="captureImage() ">
-                    Tomar foto
-                </ion-button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+<ion-content id="camera-content">
+    <img [src]="currentImage" *ngIf="currentImage">
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button (click)="takePicture()">
+            <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>
