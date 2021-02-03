@@ -10,9 +10,12 @@
     <div class="about-info ion-padding-start ion-padding-end">
         <br>
         <h5>Si ves que fumigan frente a nuestros barrios hacé la denuncia llamando a</h5>
-        <h5>Emergencias: 911</h5>
-        <h5>Policía ecológica: (223) 493-5639</h5>
+        <h5>Emergencias:</h5>
+        <ion-button expand="block" (click)="denunciaTelefonica('*911')">Llamar 911</ion-button>
+        <h5>Policía ecológica: </h5>
+        <ion-button expand="block" (click)="denunciaTelefonica('2234935639')">Llamar (223)493-5639</ion-button>
+
         <h5>Las fotos que tomes con tu cámara envialas por email a la fiscalía.</h5>
-        <h5>fisfed1-mdp@mpf.gov.ar</h5>
+        <ion-button expand="block" (click)="enviarEmail('fisfed1-mdp@mpf.gov.ar')">Enviar e-mail</ion-button>
     </div>
 </ion-content>

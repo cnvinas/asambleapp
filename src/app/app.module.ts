@@ -14,6 +14,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { OpenNativeApps } from './services/open_native_apps.service';
+import { CallNumber } from '@ionic-native/call-number/ngx';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
 @NgModule({
   imports: [
@@ -28,7 +30,7 @@ import { OpenNativeApps } from './services/open_native_apps.service';
     })
   ],
   declarations: [AppComponent],
-  providers: [InAppBrowser, SplashScreen, StatusBar, Camera, AppAvailability, OpenNativeApps],
+  providers: [InAppBrowser, SplashScreen, StatusBar, Camera, AppAvailability, OpenNativeApps, CallNumber, EmailComposer],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
