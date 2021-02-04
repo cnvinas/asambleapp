@@ -18,22 +18,6 @@ const routes: Routes = [
   {
     path: 'camara',
     loadChildren: () => import('./pages/camara/camara.module').then(m => m.CamaraModule)
-  },
-  {
-    path: 'map',
-    loadChildren: () => import('./pages/external_urls/map/map.module').then(m => m.MapModule)
-  },
-  {
-    path: 'facebook',
-    loadChildren: () => import('./pages/external_urls/facebook/facebook.module').then(m => m.FacebookModule)
-  },
-  {
-    path: 'browse',
-    loadChildren: () => import('./pages/external_urls/browse/browse.module').then(m => m.BrowseModule)
-  },
-  {
-    path: 'agroecologiaya',
-    loadChildren: () => import('./pages/external_urls/agroecologiaya/agroecologiaya.module').then(m => m.AgroecologiaYaModule)
   }
 ];
 

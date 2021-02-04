@@ -4,16 +4,19 @@ import { InAppBrowser, InAppBrowserObject } from "@ionic-native/in-app-browser/n
 import { Platform } from "@ionic/angular";
 
 @Inject({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class OpenNativeApps {
-    constructor(
-        public platform: Platform,
-        private appAvailability: AppAvailability,
-        private inAppBrowser: InAppBrowser){ }
+  constructor(
+    public platform: Platform,
+    private appAvailability: AppAvailability,
+    private inAppBrowser: InAppBrowser) { }
 
   public openApp(appName) {
     let id = "";
+    let url;
+    let target;
+    let options;
     switch (appName) {
       case 'facebook':
         id = "marchiquitaporelbuenvivir";
@@ -26,6 +29,18 @@ export class OpenNativeApps {
       case 'youtube':
         id = "marchiquitaporelbuenvivir";
         this.openYoutube(id);
+        break;
+      case 'agroecologíaya':
+        url = "https://www.agroecologiaya.org/";
+        target = "_self";
+        options = 'location=no,toolbar=no';
+        this.inAppBrowser.create(url, target, options);
+        break;
+      case 'mapaagroecológico':
+        url = "https://www.google.com/maps/d/viewer?mid=1S7F6mZ6byNdSDnx4NYuhk3MdvoEibP1Z&hl=es&ll=-37.95035205048554%2C-57.54862841207529&z=10";
+        target = "_self";
+        options = 'location=no,toolbar=no';
+        this.inAppBrowser.create(url, target, options);
         break;
     }
   }
@@ -40,7 +55,7 @@ export class OpenNativeApps {
       let browser: InAppBrowserObject = this.inAppBrowser.create(httpUrl + username, '_system');
       return;
     }
-  
+
     this.appAvailability.check(app).then(
       () => { // success callback
         let browser: InAppBrowserObject = this.inAppBrowser.create(appUrl + username, '_system');
@@ -50,15 +65,15 @@ export class OpenNativeApps {
       }
     );
   }
-  
+
   openInstagram(username: string) {
     this.launchExternalApp('instagram://', 'com.instagram.android', 'instagram://user?username=', 'https://m.instagram.com/', username);
   }
-  
+
   openYoutube(username: string) {
     this.launchExternalApp('youtube://', 'com.youtube.android', 'youtube://user?screen_name=', 'https://m.youtube.com/', username);
   }
-  
+
   openFacebook(username: string) {
     this.launchExternalApp('fb://', 'com.facebook.katana', 'fb://profile/', 'https://m.facebook.com/', username);
   }

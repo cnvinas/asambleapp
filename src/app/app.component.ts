@@ -37,12 +37,12 @@ export class AppComponent {
     },
     {
       title: 'Agroecología Ya',
-      url: 'agroecologiaya',
+      url: 'noredirect',
       icon: 'leaf-outline'
     },
     {
       title: 'Mapa Agroecológico',
-      url: 'map',
+      url: 'noredirect',
       icon: 'map-outline'
     },
     {
@@ -67,7 +67,7 @@ export class AppComponent {
   }
 
 async openLink(name){
-  let appName = name.toLowerCase();
+  let appName = name.toLowerCase().split(" ").join("");  
   this.openNativeApps.openApp(appName);
 }
 
