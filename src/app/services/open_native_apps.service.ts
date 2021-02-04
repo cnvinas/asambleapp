@@ -19,8 +19,10 @@ export class OpenNativeApps {
     let options;
     switch (appName) {
       case 'facebook':
-        id = "marchiquitaporelbuenvivir";
-        this.openFacebook(id);
+        url = "https://m.facebook.com/marchiquitaporelbuenvivir";
+        target = "_self";
+        options = 'location=no,toolbar=no';
+        this.inAppBrowser.create(url, target, options);
         break;
       case 'instagram':
         id = "desierto_verde";
@@ -72,10 +74,6 @@ export class OpenNativeApps {
 
   openYoutube(username: string) {
     this.launchExternalApp('youtube://', 'com.youtube.android', 'youtube://user?screen_name=', 'https://m.youtube.com/', username);
-  }
-
-  openFacebook(username: string) {
-    this.launchExternalApp('fb://', 'com.facebook.katana', 'fb://profile/', 'https://m.facebook.com/', username);
   }
 
 }
