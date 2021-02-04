@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { OpenNativeApps } from './services/open_native_apps.service';
 
 
 @Component({
@@ -21,17 +22,17 @@ export class AppComponent {
     },
     {
       title: 'Facebook',
-      url: 'browse/facebook',
+      url: 'noredirect',
       icon: 'logo-facebook'
     },
     {
       title: 'Instagram',
-      url: 'browse/instagram',
+      url: 'noredirect',
       icon: 'logo-instagram'
     },
     {
       title: 'Youtube',
-      url: 'browse/youtube',
+      url: 'noredirect',
       icon: 'logo-youtube'
     },
     {
@@ -57,12 +58,18 @@ export class AppComponent {
   ];
 
   constructor(
+    private openNativeApps: OpenNativeApps,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
     this.initializeApp();
   }
+
+async openLink(name){
+  let appName = name.toLowerCase();
+  this.openNativeApps.openApp(appName);
+}
 
   initializeApp() {
     this.platform.ready().then(() => {

@@ -19,6 +19,10 @@ export class BrowsePage implements OnInit {
 
   ngOnInit() {
     this.appName = this.route.snapshot.paramMap.get('name');
-    this.openNativeApps.openApp(this.appName);
+    this.openSocial(this.appName);
+  }
+
+  async openSocial(appName: string) {
+    this.openNativeApps.openApp(appName);
   }
 }

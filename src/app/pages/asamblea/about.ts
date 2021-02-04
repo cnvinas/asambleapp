@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Config } from '@ionic/angular';
 import { OpenNativeApps } from '../../services/open_native_apps.service';
 
